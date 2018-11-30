@@ -16,5 +16,16 @@ namespace UrlParser
         {
             InitializeComponent();
         }
+
+        private void parseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void nowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            IEnumerable<string> raw_urls = Program.SplitToLines(txtInput.Text.ToString());
+            Program.ParseUrls(raw_urls);
+        }
     }
 }

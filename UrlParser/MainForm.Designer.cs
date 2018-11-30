@@ -30,12 +30,13 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabInput = new System.Windows.Forms.TabPage();
-            this.tabOutput = new System.Windows.Forms.TabPage();
             this.txtInput = new System.Windows.Forms.TextBox();
+            this.tabOutput = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.parseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.tabInput.SuspendLayout();
             this.tabOutput.SuspendLayout();
@@ -60,10 +61,20 @@
             this.tabInput.Location = new System.Drawing.Point(4, 22);
             this.tabInput.Name = "tabInput";
             this.tabInput.Padding = new System.Windows.Forms.Padding(3);
-            this.tabInput.Size = new System.Drawing.Size(792, 424);
+            this.tabInput.Size = new System.Drawing.Size(792, 400);
             this.tabInput.TabIndex = 0;
             this.tabInput.Text = "Input";
             this.tabInput.UseVisualStyleBackColor = true;
+            // 
+            // txtInput
+            // 
+            this.txtInput.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtInput.Location = new System.Drawing.Point(3, 3);
+            this.txtInput.Multiline = true;
+            this.txtInput.Name = "txtInput";
+            this.txtInput.Size = new System.Drawing.Size(786, 394);
+            this.txtInput.TabIndex = 1;
+            this.txtInput.WordWrap = false;
             // 
             // tabOutput
             // 
@@ -75,16 +86,6 @@
             this.tabOutput.TabIndex = 1;
             this.tabOutput.Text = "Output";
             this.tabOutput.UseVisualStyleBackColor = true;
-            // 
-            // txtInput
-            // 
-            this.txtInput.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtInput.Location = new System.Drawing.Point(3, 3);
-            this.txtInput.Multiline = true;
-            this.txtInput.Name = "txtInput";
-            this.txtInput.Size = new System.Drawing.Size(786, 418);
-            this.txtInput.TabIndex = 1;
-            this.txtInput.WordWrap = false;
             // 
             // dataGridView1
             // 
@@ -109,15 +110,25 @@
             // 
             // parseToolStripMenuItem
             // 
+            this.parseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.nowToolStripMenuItem});
             this.parseToolStripMenuItem.Name = "parseToolStripMenuItem";
             this.parseToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
             this.parseToolStripMenuItem.Text = "Parse";
+            this.parseToolStripMenuItem.Click += new System.EventHandler(this.parseToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.aboutToolStripMenuItem.Text = "About";
+            // 
+            // nowToolStripMenuItem
+            // 
+            this.nowToolStripMenuItem.Name = "nowToolStripMenuItem";
+            this.nowToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.nowToolStripMenuItem.Text = "Now";
+            this.nowToolStripMenuItem.Click += new System.EventHandler(this.nowToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -151,6 +162,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem parseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nowToolStripMenuItem;
     }
 }
 
