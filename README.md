@@ -19,3 +19,5 @@ A Desktop utility tool to parse a list of URLS
 
 
 ## Copyright
+
+All rights reserved by Darwin Biler
