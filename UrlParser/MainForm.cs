@@ -25,10 +25,11 @@ namespace UrlParser
         private void nowToolStripMenuItem_Click(object sender, EventArgs e)
         {
             IEnumerable<string> raw_urls = Program.SplitToLines(txtInput.Text.ToString());
-            Program.ParseUrls(raw_urls);
+            List<ParsedUrl> url_list = Program.ParseUrls(raw_urls);
+            UpdateOutput(url_list);
         }
 
-        private void UpdateOutput() {
+        private void UpdateOutput(List<ParsedUrl> url_list) {
 
             // Create a new DataTable.    
             DataTable urlsTable = new DataTable("Urls");
@@ -63,24 +64,18 @@ namespace UrlParser
             // Add custTable to the DataSet.    
             dtSet.Tables.Add(urlsTable);
 
-            // Add data rows to the custTable using NewRow method    
-            // I add three customers with their addresses, names and ids   
-            /*myDataRow = custTable.NewRow();
-            myDataRow["id"] = 1001;
-            myDataRow["Address"] = "43 Lanewood Road, cito, CA";
-            myDataRow["Name"] = "George Bishop";
-            custTable.Rows.Add(myDataRow);
-            myDataRow = custTable.NewRow();
-            myDataRow["id"] = 1002;
-            myDataRow["name"] = "Rock joe";
-            myDataRow["Address"] = " kind of Prussia, PA";
-            custTable.Rows.Add(myDataRow);
-            myDataRow = custTable.NewRow();
-            myDataRow["id"] = 1003;
-            myDataRow["Name"] = "Miranda";
-            myDataRow["Address"] = "279 P. Avenue, Bridgetown, PA";
-            custTable.Rows.Add(myDataRow);
-            */
-        }
+
+            foreach(var item in url_list) {
+                myDataRow = urlsTable.NewRow();
+                myDataRow["protocol"] = item.Protocol;
+                myDataRow["host"] = item.Host;
+                myDataRow["path"] = item.Path;
+                urlsTable.Rows.Add(myDataRow);
+            }
+
+            dataGridView1.DataSource = dtSet;
+            dataGridView1.DataMember = "Urls";
+        } // update output
+
     }
 }

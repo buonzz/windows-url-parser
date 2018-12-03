@@ -21,6 +21,20 @@ namespace UrlParser
         public static List<ParsedUrl> ParseUrls(IEnumerable<string> raw_urls)
         {
             List<ParsedUrl> output = new List<ParsedUrl>();
+
+            foreach (var i in raw_urls) {
+                Uri curUri = new Uri(i);
+                ParsedUrl curPU = new ParsedUrl();
+
+                curPU.Host = curUri.Host;
+                curPU.Path = curUri.AbsolutePath;
+                curPU.Protocol = curUri.Scheme;
+                curPU.Query = curUri.Query;
+
+                output.Add(curPU);
+
+            }
+
             return output;
         }
 
