@@ -29,6 +29,23 @@ namespace UrlParser
             UpdateOutput(url_list);
         }
 
+        private HashSet<String> retrieveUniqueColumns(List<ParsedUrl> url_list) {
+            HashSet<String> columns = new HashSet<string>();
+
+            columns.Add("protocol");
+            columns.Add("host");
+            columns.Add("path");
+
+            foreach (ParsedUrl url in url_list) {
+                if(url.Params != null)
+                foreach (string col in url.Params.AllKeys) {
+                    columns.Add(col);
+                }       
+            }
+            return columns;
+        }
+
+
         private void UpdateOutput(List<ParsedUrl> url_list) {
 
             // Create a new DataTable.    
@@ -36,27 +53,17 @@ namespace UrlParser
             DataColumn dtColumn;
             DataRow myDataRow;
 
-            dtColumn = new DataColumn();
-            dtColumn.DataType = typeof(String);
-            dtColumn.ColumnName = "protocol";
-            dtColumn.Caption = "Protocol";
-            dtColumn.ReadOnly = false;
-            urlsTable.Columns.Add(dtColumn);
+            HashSet<string> columns = retrieveUniqueColumns(url_list);
 
-            dtColumn = new DataColumn();
-            dtColumn.DataType = typeof(String);
-            dtColumn.ColumnName = "host";
-            dtColumn.Caption = "Host";
-            dtColumn.ReadOnly = false;
-            urlsTable.Columns.Add(dtColumn);
 
-            dtColumn = new DataColumn();
-            dtColumn.DataType = typeof(String);
-            dtColumn.ColumnName = "path";
-            dtColumn.Caption = "Query";
-            dtColumn.ReadOnly = false;
-            urlsTable.Columns.Add(dtColumn);
-
+            foreach (string column in columns) {
+                dtColumn = new DataColumn();
+                dtColumn.DataType = typeof(String);
+                dtColumn.ColumnName = column;
+                dtColumn.Caption = column;
+                dtColumn.ReadOnly = false;
+                urlsTable.Columns.Add(dtColumn);
+            }
 
             // Create a new DataSet  
             DataSet dtSet = new DataSet();
