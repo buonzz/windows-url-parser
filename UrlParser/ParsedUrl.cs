@@ -8,10 +8,10 @@ namespace UrlParser
 {
     class ParsedUrl
     {
-        public String Protocol;
-        public String Host;
-        public String Path;
-        public String Query;
-        public System.Collections.Specialized.NameValueCollection Params;
+        public String Protocol = null;
+        public String Host = null;
+        public String Path = null;
+        public String Query = null;
+        public System.Collections.Specialized.NameValueCollection Params = null;
     }
 }

@@ -58,14 +58,14 @@ namespace UrlParser
 
 
             // Create a new DataSet  
-            dtSet = new DataSet();
+            DataSet dtSet = new DataSet();
 
             // Add custTable to the DataSet.    
-            dtSet.Tables.Add(custTable);
+            dtSet.Tables.Add(urlsTable);
 
             // Add data rows to the custTable using NewRow method    
             // I add three customers with their addresses, names and ids   
-            myDataRow = custTable.NewRow();
+            /*myDataRow = custTable.NewRow();
             myDataRow["id"] = 1001;
             myDataRow["Address"] = "43 Lanewood Road, cito, CA";
             myDataRow["Name"] = "George Bishop";
@@ -80,6 +80,7 @@ namespace UrlParser
             myDataRow["Name"] = "Miranda";
             myDataRow["Address"] = "279 P. Avenue, Bridgetown, PA";
             custTable.Rows.Add(myDataRow);
+            */
         }
     }
 }

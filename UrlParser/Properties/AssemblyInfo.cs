@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("UrlParser")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Utility Tool to Parse list of URLS")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Amazon.com")]
-[assembly: AssemblyProduct("UrlParser")]
-[assembly: AssemblyCopyright("Copyright © Amazon.com 2018")]
+[assembly: AssemblyCompany("Buonzz.com")]
+[assembly: AssemblyProduct("URL Parser")]
+[assembly: AssemblyCopyright("Copyright © Buonzz.com 2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
